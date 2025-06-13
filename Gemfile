@@ -42,7 +42,9 @@ end
 group :development do
   gem 'listen', '>= 3.5'
   gem "rb-fsevent", "~> 0.11.2"
+  # To test sending emails we will use letter_opener
   gem 'letter_opener'
+  gem 'letter_opener_web'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
