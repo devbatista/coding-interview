@@ -1,0 +1,12 @@
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <h2 class="card-title"><%= @user.display_name %></h2>
+    <p><strong>Email:</strong> <%= @user.email %></p>
+    <p><strong>Username:</strong> <%= @user.username %></p>
+    <p><strong>Company:</strong> <%= @user.company&.name %></p>
+    <div class="mt-4">
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning me-2" %>
+      <%= link_to 'Back', users_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
