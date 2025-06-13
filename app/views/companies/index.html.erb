@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="mb-0">Empresas</h1>
+  <%= link_to 'Nova Empresa', new_companies_path, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-hover bg-white shadow-sm rounded">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome</th>
+      <th class="text-end">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td class="text-end">
+          <%= link_to 'Mostrar', company, class: "btn btn-info btn-sm me-1" %>
+          <%= link_to 'Editar', edit_company_path(company), class: "btn btn-warning btn-sm me-1" %>
+          <%= link_to 'Remover', company, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
