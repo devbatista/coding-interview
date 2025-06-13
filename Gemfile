@@ -39,11 +39,15 @@ end
 
 group :development do
   gem 'listen', '>= 3.5'
+  gem "rb-fsevent", "~> 0.11.2"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'psych', '5.2.6'
+gem 'erb', '5.0.1'
