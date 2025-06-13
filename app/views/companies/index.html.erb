@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="mb-0">Empresas</h1>
-  <%= link_to 'Nova Empresa', new_companies_path, class: "btn btn-primary shadow" %>
+  <h1 class="mb-0">Companies</h1>
+  <%= link_to 'New Company', new_companies_path, class: "btn btn-primary shadow" %>
 </div>
 
 <div class="card shadow-sm">
@@ -8,8 +8,8 @@
     <table class="table table-hover mb-0 align-middle">
       <thead class="table-dark">
         <tr>
-          <th>Nome</th>
-          <th class="text-end">Ações</th>
+          <th>Name</th>
+          <th class="text-end">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -17,9 +17,9 @@
           <tr>
             <td class="fw-semibold"><%= company.name %></td>
             <td class="text-end">
-              <%= link_to 'Mostrar', company, class: "btn btn-info btn-sm me-1" %>
-              <%= link_to 'Editar', edit_company_path(company), class: "btn btn-warning btn-sm me-1" %>
-              <%= link_to 'Remover', company, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-danger btn-sm" %>
+              <%= link_to 'Show', company, class: "btn btn-info btn-sm me-1" %>
+              <%= link_to 'Edit', edit_company_path(company), class: "btn btn-warning btn-sm me-1" %>
+              <%= link_to 'Delete', company, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
             </td>
           </tr>
         <% end %>
