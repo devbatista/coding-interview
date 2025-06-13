@@ -13,6 +13,7 @@ development:
 test:
   <<: *default
   database: coding_interview_test
+  host: localhost
 
 production:
   <<: *default
