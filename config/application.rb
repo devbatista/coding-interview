@@ -33,5 +33,7 @@ module SocialFeed
     config.api_only = true
 
     config.active_support.cache_format_version = 7.1
+
+    config.middleware.use Rack::MethodOverride
   end
 end
