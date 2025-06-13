@@ -1,12 +1,12 @@
 class TweetsController < ApplicationController
-  before_filter :set_tweets
+  before_action :set_tweets
 
   def index
     per_page = (params[:per_page] || 10).to_i
     cursor = params[:cursor]
 
     @tweets = @tweets.where('created_at < ?', Time.at(cursor.to_i)) if cursor.present?
-    
+
     @tweets = @tweets.limit(per_page)
     next_cursor = @tweets.last&.created_at&.to_i
 
