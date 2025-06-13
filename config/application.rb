@@ -35,6 +35,7 @@ module SocialFeed
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
 
     config.active_support.cache_format_version = 7.1
 
