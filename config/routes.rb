@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:index]
 
-  resources :users, param: :username do
+  resources :users do
     resources :tweets, only: [:index]
   end
 
