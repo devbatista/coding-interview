@@ -5,16 +5,11 @@ class TweetsController < ApplicationController
     cursor = params[:cursor]
     username = params[:user_username]
 
-    @tweets = @tweets.recent
-                     .by_username(username)
-                     .before_cursor(cursor)
-                     .paginate(per_page)
+    @tweets = Tweet.recent
+                   .by_username(username)
+                   .before_cursor(cursor)
+                   .paginate(per_page)
 
-    next_cursor = @tweets.last&.created_at&.to_i
-
-    render json: {
-      tweets: @tweets,
-      next_cursor: (@tweets.size == per_page ? next_cursor : nil)
-    }
+    @next_cursor = @tweets.last&.created_at&.to_i
   end
 end

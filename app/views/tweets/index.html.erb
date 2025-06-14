@@ -1,0 +1,15 @@
+<h1>Tweets</h1>
+
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li>
+      <strong><%= tweet.user.username %>:</strong>
+      <%= tweet.content %>
+      <small><%= tweet.created_at.strftime("%d/%m/%Y %H:%M") %></small>
+    </li>
+  <% end %>
+</ul>
+
+<% if @next_cursor %>
+  <%= link_to "Próxima página", tweets_path(cursor: @next_cursor, per_page: params[:per_page], user_username: params[:user_username]) %>
+<% end %>
