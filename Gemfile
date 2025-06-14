@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'psych', '5.2.6'
 gem 'erb', '5.0.1'
+
+gem 'sidekiq'
