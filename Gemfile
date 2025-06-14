@@ -63,3 +63,4 @@ gem 'psych', '5.2.6'
 gem 'erb', '5.0.1'
 
 gem 'sidekiq'
+gem 'sidekiq-cron'
