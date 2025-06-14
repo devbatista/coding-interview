@@ -46,9 +46,97 @@ Sistema desenvolvido para avaliação técnica com Ruby on Rails. O projeto abra
 
 ## ▶️ Como rodar
 
-**preencher como rodar**
+1. **Clone o repositório:**
+
+   ```sh
+   git clone https://github.com/seu-usuario/coding-interview.git
+   cd coding-interview
+   ```
+
+2. **Copie o arquivo de variáveis de ambiente (se necessário):**
+
+   ```sh
+   cp .env.example .env
+   ```
+
+3. **Suba os containers do Docker:**
+
+   ```sh
+   docker-compose up --build
+   ```
+
+4. **Instale as gems dentro do container:**
+
+   ```sh
+   docker-compose run --rm web bundle install
+   ```
+
+5. **Crie e migre o banco de dados:**
+
+   ```sh
+   docker-compose run --rm web rails db:create db:migrate
+   ```
+
+6. **(Opcional) Popule o banco com seeds:**
+
+   ```sh
+   docker-compose run --rm web rails db:seed
+   ```
+
+7. **Acesse a aplicação:**
+
+   - No navegador, acesse: [http://localhost:3000](http://localhost:3000)
+
+8. **Para rodar o Sidekiq (jobs em background):**
+
+   ```sh
+   docker-compose up sidekiq
+   ```
+
+---
+**Resumo:**  
+- Todos os comandos acima devem ser executados na raiz do projeto.
+- O acesso padrão é via [http://localhost:3000](http://localhost:3000).
+- Para rodar testes, veja a seção "Como testar" abaixo.
 
 
 ## Como testar
 
-**preencher como testar**
+1. **Execute todos os testes automatizados com RSpec:**
+
+   ```sh
+   docker-compose run --rm web bundle exec rspec
+   ```
+
+2. **Verifique o relatório de cobertura de testes:**
+
+   Após rodar os testes, será gerado um relatório em `coverage/index.html`.  
+   Para visualizar, abra o arquivo no navegador:
+
+   ```sh
+   open coverage/index.html
+   ```
+
+3. **Rode testes de uma área específica (opcional):**
+
+   - Apenas os testes de requests:
+     ```sh
+     docker-compose run --rm web bundle exec rspec spec/requests
+     ```
+   - Apenas os testes de um model:
+     ```sh
+     docker-compose run --rm web bundle exec rspec spec/models/user_spec.rb
+     ```
+   - Apenas um teste específico (linha 15 do arquivo):
+     ```sh
+     docker-compose run --rm web bundle exec rspec spec/models/user_spec.rb:15
+     ```
+
+4. **Dicas importantes:**
+   - Sempre rode os testes dentro do container Docker.
+   - Certifique-se de que o banco de dados de teste está criado e migrado. Se necessário, rode:
+     ```sh
+     docker-compose run --rm web rails db:create db:migrate RAILS_ENV=test
+     ```
+   - O relatório de cobertura é atualizado a cada execução dos testes.
+   - Se adicionar novas gems de teste, rode novamente `docker-compose run --rm web bundle install`.
