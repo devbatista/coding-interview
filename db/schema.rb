@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2021_08_18_050351) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_14_132054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2021_08_18_050351) do
     t.string "name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -25,6 +26,8 @@ ActiveRecord::Schema[7.1].define(version: 2021_08_18_050351) do
     t.text "body"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.index ["created_at"], name: "index_tweets_on_created_at"
+    t.index ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
@@ -36,6 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2021_08_18_050351) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["company_id"], name: "index_users_on_company_id"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "tweets", "users"
