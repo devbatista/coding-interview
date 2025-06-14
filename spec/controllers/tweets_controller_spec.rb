@@ -26,12 +26,12 @@ RSpec.describe TweetsController, type: :controller do
     it "filter tweets by cursor" do
       cursor = tweet3.created_at.to_i
       get :index, params: { cursor: cursor }
-      expect(assigns(:tweets)).(match_array([tweet2, tweet1]))
+      expect(assigns(:tweets)).to(match_array([tweet2, tweet1]))
     end
 
     it "assigns the next cursor to @next_cursor" do
       get :index, params: { per_page: 2 }
-      expect(assigns(:next_cursor)).(eq(assigns(:tweets).last.created_at.to_i))
+      expect(assigns(:next_cursor)).to(eq(assigns(:tweets).last.created_at.to_i))
     end
   end
 end
