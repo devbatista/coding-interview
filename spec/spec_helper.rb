@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'database_cleaner/active_record'
+require 'rails-controller-testing'
 
 SimpleCov.start 'rails'
 
