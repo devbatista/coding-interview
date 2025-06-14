@@ -10,14 +10,14 @@ RSpec.describe UsersController, type: :controller do
     context "when searching for users by company" do
       it "assigns only users from the specified company to @users" do
         get :index, params: { company_identifier: company_1.id }
-        expect(assigns(:users)).to match_array(users_company_1)
+        expect(assigns(:users)).to(match_array(users_company_1))
       end
     end
 
     context "when searching for all users" do
       it "assigns all users to @users" do
         get :index
-        expect(assigns(:users)).to match_array(User.all)
+        expect(assigns(:users)).to(match_array(User.all))
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe UsersController, type: :controller do
       it "assigns only users with the searched username to @users" do
         user = users_company_1.first
         get :index, params: { username: user.username }
-        expect(assigns(:users)).to match_array([user])
+        expect(assigns(:users)).to(match_array([user]))
       end
     end
   end
