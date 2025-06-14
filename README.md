@@ -117,7 +117,7 @@ Sistema desenvolvido para avaliação técnica com Ruby on Rails. O projeto abra
    open coverage/index.html
    ```
 
-3. **Rode testes de uma área específica (opcional):**
+3. **Rode testes de uma área específica:**
 
    - Apenas os testes de requests:
      ```sh
@@ -133,8 +133,8 @@ Sistema desenvolvido para avaliação técnica com Ruby on Rails. O projeto abra
      ```
 
 4. **Dicas importantes:**
-   - Sempre rode os testes dentro do container Docker.
-   - Certifique-se de que o banco de dados de teste está criado e migrado. Se necessário, rode:
+   - Sempre rodar os testes dentro do container Docker.
+   - Certificar de que o banco de dados de teste está criado e migrado. Se necessário, rodar:
      ```sh
      docker-compose run --rm web rails db:create db:migrate RAILS_ENV=test
      ```
